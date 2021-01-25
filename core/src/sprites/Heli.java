@@ -5,9 +5,10 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector3;
 
 public class Heli {
-    private static final int GRAVITY = -15;
+    private static final int GRAVITY = -5;
     private static final int UP = 5;
     private static final int LEFT = -10;
+    private static final int RIGHT = 10;
     private Vector3 position;
     private Vector3 velocity;
     private Sprite heliSprite;
@@ -22,15 +23,19 @@ public class Heli {
     }
 
     public void update (float dt){
-        if(position.y > 0) {
-            velocity.add(0, GRAVITY, 0);
-            velocity.scl(dt);
-            position.add(0, velocity.y, 0);
+        velocity.add(0, UP, 0);
+        velocity.scl(dt);
+        position.add(0, velocity.y, 0);
+
+        if(position.y <= 0){
+            velocity.add(0, UP, 0);
         }
 
-        if(position.y < 0){
-            position.y = 0;
+        if(position.y >= 540){
+            velocity.add(0, GRAVITY, 0);
+            position.add(RIGHT, 0, 0);
         }
+
 
         velocity.scl(1/dt);
 
