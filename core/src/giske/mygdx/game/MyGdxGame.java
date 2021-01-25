@@ -12,7 +12,7 @@ import giske.mygdx.game.states.PlayState;
 
 public class MyGdxGame extends ApplicationAdapter {
 	public static final int WIDTH = 480;
-	public static final int HEIGHT = 800;
+	public static final int HEIGHT = 600;
 
 	public static final String TITLE = "Sprites";
 	private GameStateManager gsm;
@@ -24,7 +24,7 @@ public class MyGdxGame extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		gsm = new GameStateManager();
 		//img = new Texture("heli1.png");
-		Gdx.gl.glClearColor(1, 0, 0, 1);
+		Gdx.gl.glClearColor(0, 3, 1, 1);
 		gsm.push(new PlayState(gsm));
 	}
 

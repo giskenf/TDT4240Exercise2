@@ -1,5 +1,6 @@
 package giske.mygdx.game.states;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
@@ -10,11 +11,14 @@ public class PlayState extends State {
 
     public PlayState(GameStateManager gsm) {
         super(gsm);
-        heli = new Heli(50,400);
+        heli = new Heli(100,100);
     }
 
     @Override
     public void handleInput() {
+        if(Gdx.input.justTouched()){
+            heli.jump();
+        }
     }
 
     @Override
