@@ -10,11 +10,11 @@ public class Heli {
     //private static final int GRAVITY = -10;
     private boolean UP = true;
     private static final int SPEED = 200;
-    private boolean RIGHT = true;
+    private boolean RIGHT = false;
     private Vector3 position;
     private Vector3 velocity;
-    private Sprite heliSprite;
-    private Texture heli;
+    public Sprite heliSprite;
+    public Texture heli;
 
     public Heli(int x, int y){
         position = new Vector3(x,y,0);
@@ -41,10 +41,12 @@ public class Heli {
             position.x += movement;
         } else {
             position.x -= movement;
+
         }
         if (RIGHT && position.x > MyGdxGame.WIDTH - heli.getWidth()) {
             RIGHT = false;
             heliSprite.flip(true, false);
+
         }
         if (!RIGHT && position.x < 0) {
             RIGHT = true;

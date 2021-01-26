@@ -31,7 +31,7 @@ public class PlayState extends State {
     @Override
     public void render(SpriteBatch sb) {
         sb.begin();
-        sb.draw(heli.getTexture(), heli.getPosition().x, heli.getPosition().y);
+        sb.draw(heli.heliSprite, heli.getPosition().x, heli.getPosition().y);
         sb.end();
     }
 
