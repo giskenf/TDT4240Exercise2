@@ -4,56 +4,28 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector3;
 
+import giske.mygdx.game.MyGdxGame;
+
 public class Heli {
-    private static final int GRAVITY = -5;
-    private static final int UP = 5;
-    private static final int LEFT = -10;
-    private static final int RIGHT = 10;
+    //private static final int GRAVITY = -10;
+    private boolean UP = true;
+    private static final int SPEED = 200;
+    private boolean RIGHT = true;
     private Vector3 position;
     private Vector3 velocity;
     private Sprite heliSprite;
-
     private Texture heli;
 
     public Heli(int x, int y){
         position = new Vector3(x,y,0);
-        velocity = new Vector3(0,0,0);
+        //velocity = new Vector3(0,0,0);
         heli = new Texture("heli1.png");
-        //heliSprite = new Sprite(heli);
+        heliSprite = new Sprite(heli);
     }
 
     public void update (float dt){
-        velocity.add(0, UP, 0);
-        velocity.scl(dt);
-        position.add(0, velocity.y, 0);
-
-        if(position.y <= 0){
-            velocity.add(0, UP, 0);
-        }
-
-        if(position.y >= 540){
-            velocity.add(0, GRAVITY, 0);
-            position.add(RIGHT, 0, 0);
-        }
-
-
-        velocity.scl(1/dt);
-
-        /*if(position.y <= 130){
-            velocity.add(0, UP, 0);
-        }
-
-        if(position.y >= 800){
-            velocity.add(0, GRAVITY, 0);
-        }
-
-        if (position.x >= 300){
-            velocity.add(LEFT, GRAVITY, 0);
-        }*/
-
-
-        //heliSprite.flip(true,false);
-
+        moveX(SPEED * dt);
+        moveY(SPEED * dt);
     }
 
     public Vector3 getPosition() {
@@ -64,7 +36,34 @@ public class Heli {
         return heli;
     }
 
-    public void jump(){
-        velocity.y = 250;
+    public void moveX(float movement){
+        if (RIGHT) {
+            position.x += movement;
+        } else {
+            position.x -= movement;
+        }
+        if (RIGHT && position.x > MyGdxGame.WIDTH - heli.getWidth()) {
+            RIGHT = false;
+            heliSprite.flip(true, false);
+        }
+        if (!RIGHT && position.x < 0) {
+            RIGHT = true;
+            heliSprite.flip(true, false);
+        }
     }
+
+    public void moveY(float movement){
+        if(UP){
+            position.y += movement;
+        } else {
+            position.y -= movement;
+        }
+        if (UP && position.y > MyGdxGame.HEIGHT - heli.getHeight()){
+            UP = false;
+        }
+        if (!UP && position.y <= 0){
+            UP = true;
+        }
+    }
+
 }

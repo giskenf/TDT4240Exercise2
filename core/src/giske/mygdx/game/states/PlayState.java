@@ -17,7 +17,7 @@ public class PlayState extends State {
     @Override
     public void handleInput() {
         if(Gdx.input.justTouched()){
-            heli.jump();
+
         }
     }
 
