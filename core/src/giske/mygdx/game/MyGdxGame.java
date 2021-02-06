@@ -7,8 +7,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import giske.mygdx.game.states.GameStateManager;
-//import giske.mygdx.game.states.MenuState;
-import giske.mygdx.game.states.PlayState;
+import giske.mygdx.game.states.MenuState;
 
 public class MyGdxGame extends ApplicationAdapter {
 	public static final int WIDTH = 480;
@@ -23,9 +22,9 @@ public class MyGdxGame extends ApplicationAdapter {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		gsm = new GameStateManager();
+		gsm = gsm.getInstance();
 		Gdx.gl.glClearColor(0, 3, 1, 1);
-		gsm.push(new PlayState(gsm));
+		gsm.push(new MenuState(gsm));
 	}
 
 	@Override

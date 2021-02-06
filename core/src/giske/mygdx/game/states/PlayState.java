@@ -25,7 +25,6 @@ public class PlayState extends State {
     public void update(float dt) {
         handleInput();
         heli.update(dt);
-
     }
 
     @Override

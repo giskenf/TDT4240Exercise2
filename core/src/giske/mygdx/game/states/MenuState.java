@@ -1,35 +1,46 @@
 package giske.mygdx.game.states;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector3;
 
-/*public class MenuState extends State {
-    private Texture heli1;
+import java.awt.Rectangle;
+
+import giske.mygdx.game.MyGdxGame;
+
+public class MenuState extends State {
+    private Texture playBtn;
+    private Rectangle bounds;
+    private Vector3 position;
+
     public MenuState(GameStateManager gsm) {
         super(gsm);
-        heli1 = new Texture("heli1.png");
+        playBtn = new Texture("play.png");
+
     }
 
     @Override
     public void handleInput() {
-
+        if(Gdx.input.justTouched()){
+            gsm.set(new PlayState(gsm));
+        }
     }
 
     @Override
     public void update(float dt) {
-
+        handleInput();
     }
 
     @Override
     public void render(SpriteBatch sb) {
         sb.begin();
-        sb.draw(heli1, 100,120);
+        sb.draw(playBtn, (MyGdxGame.WIDTH / 2) - (playBtn.getWidth() / 2), MyGdxGame.HEIGHT / 2);
         sb.end();
-
     }
 
     @Override
     public void dispose() {
-        heli1.dispose();
+        playBtn.dispose();
     }
-}*/
+}
