@@ -11,8 +11,6 @@ import giske.mygdx.game.MyGdxGame;
 
 public class MenuState extends State {
     private Texture playBtn;
-    private Rectangle bounds;
-    private Vector3 position;
 
     public MenuState(GameStateManager gsm) {
         super(gsm);
