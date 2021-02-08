@@ -12,7 +12,7 @@ public class GameStateManager {
         states = new Stack<State>();
     }
 
-    public static  GameStateManager getInstance(){
+    public static GameStateManager getInstance(){
         return instance;
     }
 
