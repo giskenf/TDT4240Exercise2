@@ -6,19 +6,12 @@ import com.badlogic.gdx.math.Vector3;
 
 import giske.mygdx.game.MyGdxGame;
 
-public class Heli {
-    //private static final int GRAVITY = -10;
-    private boolean UP = true;
-    private static final int SPEED = 200;
-    private boolean RIGHT = false;
-    private Vector3 position;
-    private Vector3 velocity;
+public class Heli extends Sprites{
     public Sprite heliSprite;
     public Texture heli;
 
     public Heli(int x, int y){
-        position = new Vector3(x,y,0);
-        //velocity = new Vector3(0,0,0);
+        super(x,y);
         heli = new Texture("heli1.png");
         heliSprite = new Sprite(heli);
     }
