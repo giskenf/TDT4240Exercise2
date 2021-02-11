@@ -15,7 +15,7 @@ changed to inherit variables from the Sprites class.
 In GameStateManager, the state pattern is used to keep track of the states in the game. It holds information about what state that is the active one.
 
 ## Step 4
-a)  * For the patterns listing in Step3, which are architectural patterns, and which are design patterns? What are the relationships and differences of architectural patterns and design patterns?*
-b) * How is the pattern you chose realized in your code? (Which class(es) works as the pattern you chose?) *
-c) * Is there any advantages in using this pattern in this program? (What are the advantages/disadvantages?) *
+a)  *For the patterns listing in Step3, which are architectural patterns, and which are design patterns? What are the relationships and differences of architectural patterns and design patterns?*
+b) *How is the pattern you chose realized in your code? (Which class(es) works as the pattern you chose?)*
+c) *Is there any advantages in using this pattern in this program? (What are the advantages/disadvantages?)*
 
